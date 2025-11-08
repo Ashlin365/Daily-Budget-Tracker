@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Budget Tracker</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="container">
+    <header class="hero">
+      <div>
+        <h1>Daily Budget</h1>
+        <p class="subtitle">Track income & expenses — elegant, private, local-only.</p>
+      </div>
+      <div class="profile-row">
+        <div id="profile-name" class="profile-name" aria-hidden="true">User</div>
+        <button id="edit-name" class="edit-name" title="Edit name">Edit</button>
+      </div>
+    </header>
+
+    <section class="card form-card">
+      <form id="entry-form">
+        <div class="row">
+          <label class="field">Description
+            <input type="text" id="desc" placeholder="Coffee, salary..." required autocomplete="off" />
+          </label>
+          <label class="field">Amount
+            <input type="text" id="amount" inputmode="decimal" placeholder="0.00" required />
+          </label>
+        </div>
+        <div class="row">
+          <label class="field">Type
+            <select id="type">
+              <option value="expense">Expense</option>
+              <option value="income">Income</option>
+            </select>
+          </label>
+          <label class="field">Date
+            <input type="date" id="date" />
+          </label>
+        </div>
+        <div class="row actions">
+          <button type="submit" id="add-btn" class="btn-primary">Add</button>
+          <button type="button" id="clear-form" class="btn-ghost">Clear</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="card summary-card">
+      <div class="summary">
+        <div class="summary-item">
+          <div class="label">Income</div>
+          <div id="total-income" class="money income">$0.00</div>
+        </div>
+        <div class="summary-item">
+          <div class="label">Expense</div>
+          <div id="total-expense" class="money expense">$0.00</div>
+        </div>
+        <div class="summary-item">
+          <div class="label">Balance</div>
+          <div id="balance" class="money balance">$0.00</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card list-card">
+      <div class="list-ops">
+        <input type="text" id="search" placeholder="Search description..." />
+        <div class="ops">
+          <button id="export-btn" class="btn-action">Export JSON</button>
+          <button id="clear-data" class="btn-danger">Clear All</button>
+        </div>
+      </div>
+
+      <table id="entries-table">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Amount</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- entries rendered here -->
+        </tbody>
+      </table>
+
+      <div id="empty" class="empty">No entries yet — add your first item.</div>
+    </section>
+
+    <div id="msg" class="msg" aria-live="polite" style="display:none"></div>
+
+    <footer class="footer">
+      <small>Stored locally in your browser (localStorage). No server.</small>
+    </footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

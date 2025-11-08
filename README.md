@@ -37,3 +37,4 @@ Notes
 - If you want device sync, we can add optional export/import (disabled by default) or connect a backend.
 
 Enjoy!
+<img width="1920" height="934" alt="image" src="https://github.com/user-attachments/assets/817ff92d-f307-4517-b682-35c41a3b2933" />
